@@ -30,6 +30,7 @@ jobs:
       with:
         languages: ${{ matrix.language }}
         queries: ./custom-query/default.qls
+        debug: true
 
     - name: build
       run: |

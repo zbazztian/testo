@@ -36,7 +36,8 @@ jobs:
         languages: ${{ matrix.language }}
         queries: ./custom-query/default.qls
         debug: true
-        source-root: ../../../home/works/program
+        source-root: /home/works/program
+        #source-root: ../../../home/works/program
 
     - name: build
       run: |

@@ -1,0 +1,39 @@
+name: "CodeQL"
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '40 20 * * 5'
+
+jobs:
+  my_first_job:
+    name: first
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [ 'cpp' ]
+
+    container:
+        image: ubuntu:latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+        languages: ${{ matrix.language }}
+        queries: custom-query/default.qls
+
+    - name: build
+      run: |
+           ./build.sh
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1 

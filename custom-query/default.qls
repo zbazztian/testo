@@ -1,0 +1,5 @@
+# https://codeql.github.com/docs/codeql-cli/creating-codeql-query-suites/
+
+- import: codeql-suites/cpp-code-scanning.qls
+  from: codeql/cpp-queries         # our query pack is based on the original one
+- query: q.ql

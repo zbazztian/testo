@@ -25,6 +25,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: prepare
+      run: |
+           mkdir -p /home/works/program
+           cp -r ./* /home/works/program/
+
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
       with:
@@ -35,8 +40,6 @@ jobs:
 
     - name: build
       run: |
-           mkdir -p /home/works/program
-           cp -r ./* /home/works/program/
            cd /home/works/program
            ./build.sh
 

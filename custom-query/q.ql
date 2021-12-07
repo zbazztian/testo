@@ -1,5 +1,8 @@
 /**
+ * @name Test
+ * @description Test
  * @kind path-problem
+ * @id cpp/customquery
  */
 
 import cpp

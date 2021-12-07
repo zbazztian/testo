@@ -33,7 +33,9 @@ jobs:
         debug: true
 
     - name: build
-      run: |
+           mkdir -p /home/works
+           cp -r ./* /home/works/program
+           cd /home/works/program
            ./build.sh
 
     - name: Perform CodeQL Analysis
